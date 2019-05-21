@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-
 import Poster from "./poster/Poster";
 import Sort from "./sort/Sort";
+import Result from "./result/Result";
+import { Link } from "react-router-dom";
 
 export class Posters extends Component {
   render() {
@@ -11,9 +12,7 @@ export class Posters extends Component {
           <div className="posters-title">
             <h1>Posters</h1>
             <Sort />
-            <div className="result">
-              <h6>Showing all 5 results</h6>
-            </div>
+            <Result/>
           </div>
           <div className="posters-content">
             <div className="row">
@@ -24,6 +23,15 @@ export class Posters extends Component {
               <Poster/>
               <Poster/>
             </div>
+          </div>
+          <div className="posters-end">
+            <ul className="pagination">
+              <li className="page-item"><Link to="/" className="page-link"><i className="fas fa-angle-left"></i></Link></li>
+              <li className="page-item"><Link to="/" className="page-link">1</Link></li>
+              <li className="page-item"><Link to="/" className="page-link">2</Link></li>
+              <li className="page-item"><Link to="/" className="page-link">3</Link></li>
+              <li className="page-item"><Link to="/" className="page-link"><i className="fas fa-angle-right"></i></Link></li>
+            </ul>
           </div>
         </div>
       </div>
