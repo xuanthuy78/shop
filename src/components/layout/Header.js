@@ -6,7 +6,7 @@ export class Header extends Component {
     return (
       <div className="Header">
         <nav className="navbar navbar-expand-md bg-dark navbar-dark">
-          <a className="navbar-brand text-white">Demo - Just another ReactJs site</a>
+          <Link to="/"  className="navbar-brand text-white">Demo - Just another ReactJs site</Link>
           <button
             className="navbar-toggler"
             type="button"

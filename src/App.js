@@ -1,11 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Home from "./components/home/Home";
-
-function Poster() {
-  return <h2>About</h2>;
-}
+import Posters from "./components/posters/Posters";
 
 function App() {
   return (
@@ -14,7 +11,7 @@ function App() {
         <Header/>
 
         <Route path="/" exact component={Home} />
-        <Route path="/posters/" component={Poster} />
+        <Route path="/posters/" component={Posters} />
       </div>
     </Router>
   );
