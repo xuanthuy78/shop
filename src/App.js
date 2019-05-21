@@ -1,12 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Header from "./components/layout/Header";
+import Home from "./components/home/Home";
 
-function Index() {
-  return <h2>Home</h2>;
-}
-
-function About() {
+function Poster() {
   return <h2>About</h2>;
 }
 
@@ -16,8 +13,8 @@ function App() {
       <div>
         <Header/>
 
-        <Route path="/" exact component={Index} />
-        <Route path="/product/" component={About} />
+        <Route path="/" exact component={Home} />
+        <Route path="/posters/" component={Poster} />
       </div>
     </Router>
   );
