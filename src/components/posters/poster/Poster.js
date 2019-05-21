@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import imgPoster from '../../../../src/images/poster.jpg';
 
 export class Poster extends Component {
   render() {
@@ -8,7 +9,7 @@ export class Poster extends Component {
           <div to="/" className="card mb-3">
             <img
               className="card-img-top"
-              src="http://dummyimage.com/300x200.png/5fa2dd/ffffff"
+              src={imgPoster}
               alt="Card image"
               style={{ width: "100%" }}
               aria-hidden
