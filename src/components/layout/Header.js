@@ -6,7 +6,7 @@ export class Header extends Component {
     return (
       <div className="Header">
         <nav className="navbar navbar-expand-md bg-dark navbar-dark">
-          <a className="navbar-brand text-white">Shop</a>
+          <a className="navbar-brand text-white">Demo - Just another ReactJs site</a>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,7 +24,7 @@ export class Header extends Component {
                 <Link to="/" className="nav-link">Home</Link>
               </li>
               <li className="nav-item">
-                <Link to="/product" className="nav-link">Product</Link>
+                <Link to="/posters" className="nav-link">Posters</Link>
               </li>
             </ul>
           </div>
