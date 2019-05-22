@@ -1,5 +1,17 @@
 .Poster {
-  Link:hover {
-    text-decoration: none !important;
+  .link-cart {
+    color: #000;
+    &:hover{
+      text-decoration: none !important;
+    }
+    .btn-cart {
+      &:hover {
+        background: #138496;
+        border: 1px solid #138496;
+      }
+      .fas {
+        margin-right: 10px;
+      }
+    }
   }
 }
