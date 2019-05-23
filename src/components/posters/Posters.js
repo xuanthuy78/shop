@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Poster from "./poster/Poster";
-import Sort from "./sort/Sort";
-import Result from "./result/Result";
+import Sort from "./sortPosters/Sort";
+import Result from "./resultPosters/Result";
 import { Link } from "react-router-dom";
 
 export class Posters extends Component {

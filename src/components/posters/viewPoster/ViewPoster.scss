@@ -1,5 +1,5 @@
-.ViewPoster{
- .poster-content{
+.ViewPoster {
+ .poster-content {
     .poster-image {
       .image-resize {
         width: 300px;
@@ -12,5 +12,53 @@
         }
       }
     }
+    .poster-cart {
+      .single-item-options {
+        .category {
+          .category-title {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  .poster-tab {
+    .tab-content {
+      .post-review {
+        fieldset.rating {
+          border: none;
+          float: left;
+          & > input {
+            display: none;
+          }
+          & > label:before { 
+            margin: 5px;
+            font-size: 1.25em;
+            font-family: FontAwesome;
+            display: inline-block;
+            content: "\f005";
+          }
+          & > .half:before { 
+            content: "\f089";
+            position: absolute;
+          }
+          & > label { 
+            color: #ddd; 
+           float: right; 
+          }
+          & > input:checked ~ label, /* show gold star when clicked */
+          & > label:hover, /* hover current star */
+          &:not(:checked) > label:hover ~ label { 
+            color: #138496;  
+          }
+          & > input:checked + label:hover, /* hover current star when changing rating */
+          & > input:checked ~ label:hover,
+          & > label:hover ~ input:checked ~ label, /* lighten current selection */
+          & > input:checked ~ label:hover ~ label { color: #138496;  } 
+        }
+      }
+    }
   }
 }
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
