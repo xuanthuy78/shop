@@ -40,8 +40,8 @@ export class ViewPoster extends Component {
                         type="number"
                         className="form-control form-control-lg"
                       />
-                      <button type="submit" className="btn btn-primary btn-lg">
-                        Add to cart
+                      <button type="submit" className="btn btn-dark btn-hover btn-lg">
+                        <i className="fas fa-shopping-cart"></i> Add to cart
                       </button>
                     </form>
                   </div>

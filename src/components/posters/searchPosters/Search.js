@@ -8,7 +8,7 @@ export class Search extends Component {
           <div className="input-group mb-3">
             <input type="text" className="form-control" placeholder="Search" />
             <div className="input-group-append">
-              <button className="btn btn-dark" type="submit">
+              <button className="btn btn-dark btn-hover" type="submit">
               <i class="fas fa-search"></i>
               </button>
             </div>
