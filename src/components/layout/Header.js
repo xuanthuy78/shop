@@ -21,10 +21,10 @@ export class Header extends Component {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/" className="nav-link text-info font-bold">Home</Link>
               </li>
               <li className="nav-item">
-                <Link to="/posters" className="nav-link">Posters</Link>
+                <Link to="/posters" className="nav-link text-info font-bold">Posters</Link>
               </li>
             </ul>
           </div>
