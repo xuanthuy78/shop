@@ -3,6 +3,7 @@ import Poster from "./poster/Poster";
 import Sort from "./sortPosters/Sort";
 import Result from "./resultPosters/Result";
 import { Link } from "react-router-dom";
+import Search from "./searchPosters/Search";
 
 export class Posters extends Component {
   render() {
@@ -11,7 +12,10 @@ export class Posters extends Component {
         <div className="container">
           <div className="posters-title">
             <h1>Posters</h1>
-            <Sort />
+            <div className="form-group row justify-content-end">
+              <Sort />
+              <Search />
+            </div>
             <Result/>
           </div>
           <div className="posters-content">
