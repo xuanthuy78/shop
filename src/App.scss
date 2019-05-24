@@ -35,3 +35,10 @@
 .font-bold {
   font-weight: bold !important;
 }
+
+.btn-hover {
+  &:hover {
+    background: #138496;
+    border: 1px solid #138496;
+  }
+}
