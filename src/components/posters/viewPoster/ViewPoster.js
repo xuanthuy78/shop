@@ -11,10 +11,10 @@ export class ViewPoster extends Component {
         <div className="container">
           <div className="poster-content mt-5">
             <div className="row">
-              <div className="col-sm-4 poster-image">
+              <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 poster-image">
                 <img className="image-resize" src={imgPoster} alt="Poster" />
               </div>
-              <div className="col-sm-8 poster-cart">
+              <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 poster-cart">
                 <div className="single-item-body">
                   <h3 className="single-item-title">Premium Quality</h3>
                   <h3 className="single-item-price">
@@ -40,7 +40,7 @@ export class ViewPoster extends Component {
                         type="number"
                         className="form-control form-control-lg"
                       />
-                      <button type="button" className="btn btn-primary btn-lg">
+                      <button type="submit" className="btn btn-primary btn-lg">
                         Add to cart
                       </button>
                     </form>
@@ -59,7 +59,7 @@ export class ViewPoster extends Component {
             <ul className="nav nav-tabs" role="tablist">
               <li className="nav-item">
                 <span
-                  className="nav-link active"
+                  className="nav-link active font-bold"
                   data-toggle="tab"
                   href="#description"
                 >
@@ -67,7 +67,7 @@ export class ViewPoster extends Component {
                 </span>
               </li>
               <li className="nav-item">
-                <span className="nav-link" data-toggle="tab" href="#reviews">
+                <span className="nav-link font-bold" data-toggle="tab" href="#reviews">
                   Reviews 
                 </span>
               </li>
@@ -75,7 +75,7 @@ export class ViewPoster extends Component {
             <div className="tab-content">
               <div id="description" className="tab-pane active">
                 <div className="description mt-4">
-                  <h3>Description</h3>
+                  <h3 className="font-bold">Description</h3>
                   <p>
                     Pellentesque habitant morbi tristique senectus et netus et
                     malesuada fames ac turpis egestas. Vestibulum tortor quam,
@@ -87,11 +87,11 @@ export class ViewPoster extends Component {
               </div>
               <div id="reviews" className="tab-pane fade post-review">
                 <div className="review mt-4">
-                  <h3>Reviews (0)</h3>
+                  <h3 className="font-bold">Reviews (0)</h3>
                   <p>There are no reviews yet.</p>
                 </div>
                 <div className="idea mt-2">
-                  <h3>Be the first to review “Ship Your Idea”</h3>
+                  <h3 className="font-bold">Be the first to review “Ship Your Idea”</h3>
                   <p>
                     Your email address will not be published. Required fields
                     are marked *
@@ -152,7 +152,7 @@ export class ViewPoster extends Component {
             </div>
           </div>
           <div className="poster-like mt-5">
-            <h3>You may also like…</h3>
+            <h3 className="font-bold">You may also like…</h3>
             <div className="row mt-5">
               <Poster/>
               <Poster/>
@@ -160,7 +160,7 @@ export class ViewPoster extends Component {
             </div>
           </div>
           <div className="poster-Related  mt-5">
-            <h3>Related products</h3>
+            <h3 className="font-bold">Related products</h3>
             <div className="row mt-5">
               <Poster/>
               <Poster/>
