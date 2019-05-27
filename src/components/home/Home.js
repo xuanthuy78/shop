@@ -18,16 +18,16 @@ export class Home extends Component {
           <div className="link float-left">
             <ul className="nav">
               <li className="nav-item">
-                <Link to="/" className="nav-link"><i className="far fa-user icon"></i>admin</Link>
+                <Link to="/posters" className="nav-link"><i className="far fa-user icon"></i>admin</Link>
               </li>
               <li className="nav-item">
-                <Link to="/" className="nav-link"><i className="far fa-clock icon"></i>May 16, 2019</Link>
+                <Link to="/posters" className="nav-link"><i className="far fa-clock icon"></i>May 16, 2019</Link>
               </li>
               <li className="nav-item">
-                <Link to="/" className="nav-link"><i className="fas fa-file-archive icon"></i>Posted inUncategorized</Link>
+                <Link to="/posters" className="nav-link"><i className="fas fa-file-archive icon"></i>Posted inUncategorized</Link>
               </li>
               <li className="nav-item">
-                <Link to="/" className="nav-link"><i className="far fa-comment-alt icon"></i>Comment</Link>
+                <Link to="/posters" className="nav-link"><i className="far fa-comment-alt icon"></i>Comment</Link>
               </li>
             </ul>
           </div>

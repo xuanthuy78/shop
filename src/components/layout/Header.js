@@ -6,7 +6,7 @@ export class Header extends Component {
     return (
       <div className="Header">
         <nav className="navbar navbar-expand-md bg-dark navbar-dark">
-          <Link to="/"  className="navbar-brand text-white">Demo - Just another ReactJs site</Link>
+          <Link to="/home"  className="navbar-brand text-white">Demo - Just another ReactJs site</Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -21,7 +21,7 @@ export class Header extends Component {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link to="/" className="nav-link text-info font-bold">Home</Link>
+                <Link to="/home" className="nav-link text-info font-bold">Home</Link>
               </li>
               <li className="nav-item">
                 <Link to="/posters" className="nav-link text-info font-bold">Posters</Link>
