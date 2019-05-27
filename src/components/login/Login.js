@@ -1,43 +1,43 @@
 import React, { Component } from "react";
 import "./Login.scss";
-import callApi from './../../services/apiCaller';
-
-
+import * as callApi from './../../services/apiCaller';
+import { Redirect } from 'react-router-dom';
 
 export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'username' : '',
-      'password' : ''
+      username : '',
+      password : '',
+      redirect: false
     };
   }
 
   onChange =  (e) => {
-    var target = e.target;
-    var name = target.name;
-    var value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [name] : value
+      [e.target.name]: e.target.value
     })
   }
 
   onLogin = (e) => {
     e.preventDefault();
-    console.log(this.state.username);
-    console.log(this.state.password);
     var data = {
       username : this.state.username,
       password : this.state.password
     }
-    callApi('wordpress-demo/wp-json/jwt-auth/v1/token', 'POST', data ).then(res =>{
-      console.log(res.data.token) 
-   
-     
+    callApi.NoAuth('wordpress-demo/wp-json/jwt-auth/v1/token', 'POST', data ).then(res =>{
+       console.log(res);
+       localStorage.setItem('token', res.data.token);
+       this.setState({redirect: true});
     })
   }
   render() {
-    var {username, password} = this.state;
+    var {username, password, redirect} = this.state;
+
+    if(redirect) {
+      return <Redirect to="/posters" />
+    }
+
     return (
       <div className="container Login">
         <div className="row">
