@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Login.scss";
 import * as callApi from './../../services/apiCaller';
 import { Redirect } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 export class Login extends Component {
   constructor(props) {
@@ -26,9 +28,13 @@ export class Login extends Component {
       password : this.state.password
     }
     callApi.NoAuth('wordpress-demo/wp-json/jwt-auth/v1/token', 'POST', data ).then(res =>{
-       console.log(res);
-       localStorage.setItem('token', res.data.token);
-       this.setState({redirect: true});
+      console.log(res);
+      if (res && res.data) {
+        localStorage.setItem('token', res.data.token);
+        this.setState({redirect: true});
+      } else {
+        NotificationManager.warning('Username & Password incorrect');
+      }
     })
   }
   render() {
@@ -78,6 +84,7 @@ export class Login extends Component {
             </div>
           </div>
         </div>
+        <NotificationContainer/>
       </div>
     );
   }
