@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/shop/static/css/main.5dff4a81.chunk.css",
-    "main.js": "/shop/static/js/main.37478c93.chunk.js",
-    "main.js.map": "/shop/static/js/main.37478c93.chunk.js.map",
+    "main.js": "/shop/static/js/main.38425aae.chunk.js",
+    "main.js.map": "/shop/static/js/main.38425aae.chunk.js.map",
     "runtime~main.js": "/shop/static/js/runtime~main.265007fa.js",
     "runtime~main.js.map": "/shop/static/js/runtime~main.265007fa.js.map",
     "static/js/2.bc79910f.chunk.js": "/shop/static/js/2.bc79910f.chunk.js",
     "static/js/2.bc79910f.chunk.js.map": "/shop/static/js/2.bc79910f.chunk.js.map",
     "index.html": "/shop/index.html",
-    "precache-manifest.a2c949aa0be1ce40425aacc6d58b4393.js": "/shop/precache-manifest.a2c949aa0be1ce40425aacc6d58b4393.js",
+    "precache-manifest.4e1cca2ab308ed7128704cc5b25e4fd2.js": "/shop/precache-manifest.4e1cca2ab308ed7128704cc5b25e4fd2.js",
     "service-worker.js": "/shop/service-worker.js",
     "static/css/main.5dff4a81.chunk.css.map": "/shop/static/css/main.5dff4a81.chunk.css.map",
     "static/media/poster.jpg": "/shop/static/media/poster.8141fbd9.jpg"
