@@ -16,7 +16,7 @@ export function call(endpoint, method, body) {
     method: method,
     url: `${Config.API_URL}/${endpoint}`,
     headers: {
-      'Authorization': localStorage.getItem('token')
+      'Authorization': "Bearer " + localStorage.getItem('token')
     },
     data: body
   }).catch(function(error) {

@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 
 export class Result extends Component {
   render() {
+    var {count} = this.props;
+    
     return (
       <div className="Result">
-        <h6>Showing all 5 results</h6>
+        <h6>Showing all {count} results</h6>
       </div>
     )
   }
