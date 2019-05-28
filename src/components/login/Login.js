@@ -35,7 +35,7 @@ export class Login extends Component {
     var {username, password, redirect} = this.state;
 
     if(redirect) {
-      return <Redirect to="/posters" />
+      return <Redirect to="/home" />
     }
 
     return (

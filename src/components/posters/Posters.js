@@ -30,11 +30,11 @@ export class Posters extends Component {
           </div>
           <div className="posters-end">
             <ul className="pagination">
-              <li className="page-item"><Link to="/" className="page-link"><i className="fas fa-angle-left"></i></Link></li>
-              <li className="page-item"><Link to="/" className="page-link">1</Link></li>
-              <li className="page-item"><Link to="/" className="page-link">2</Link></li>
-              <li className="page-item"><Link to="/" className="page-link">3</Link></li>
-              <li className="page-item"><Link to="/" className="page-link"><i className="fas fa-angle-right"></i></Link></li>
+              <li className="page-item"><Link to="/home" className="page-link"><i className="fas fa-angle-left"></i></Link></li>
+              <li className="page-item"><Link to="/home" className="page-link">1</Link></li>
+              <li className="page-item"><Link to="/home" className="page-link">2</Link></li>
+              <li className="page-item"><Link to="/home" className="page-link">3</Link></li>
+              <li className="page-item"><Link to="/home" className="page-link"><i className="fas fa-angle-right"></i></Link></li>
             </ul>
           </div>
         </div>
