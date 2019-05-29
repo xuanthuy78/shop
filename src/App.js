@@ -1,10 +1,6 @@
 import React, {Component} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
-import Home from "./components/home/Home";
-import Posters from "./components/posters/Posters";
-import ViewPoster from "./components/posters/viewPoster/ViewPoster";
-import Login from "./components/login/Login";
 import './App.scss';
 import routes from './router';
 
@@ -30,10 +26,6 @@ export class App extends Component {
         <div>
           <Header/>
           {this.showContentMenu(routes)}
-          {/* <Route path="/login" exact component={Login} />
-          <Route path="/home" exact component={Home} />
-          <Route path="/posters/" exact component={Posters} />
-          <Route path="/poster/viewPoster" exact component={ViewPoster} /> */}
         </div>
       </Router>
     );

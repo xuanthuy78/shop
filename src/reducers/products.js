@@ -1,4 +1,5 @@
-import { LIST_PRODUCT } from "./../constants/ActionType";
+// import { LIST_PRODUCT } from "./../constants/ActionType";
+import * as types from './../constants/ActionType';
 
 var initialState = {
   listProduct: []
@@ -6,7 +7,7 @@ var initialState = {
 
 const products = (state = initialState, action) => {
   switch (action.type) {
-    case LIST_PRODUCT:
+    case types.LIST_PRODUCT:
       return {
         ...state,
         listProduct: action.data
