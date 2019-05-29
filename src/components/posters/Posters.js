@@ -46,6 +46,7 @@ export class Posters extends Component {
           </div>
           <div className="posters-content">
             <div className="row">
+              {/* Poster */}
               { this.showProducts(products) }
             </div>
           </div>

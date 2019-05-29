@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import imgPoster from "../../../../src/images/poster.jpg";
 import "./ViewPoster.scss";
-import Poster from "../poster/Poster";
+// import Poster from "../poster/Poster";
 
 export class ViewPoster extends Component {
   render() {
@@ -154,17 +154,17 @@ export class ViewPoster extends Component {
           <div className="poster-like mt-5">
             <h3 className="font-bold">You may also like…</h3>
             <div className="row mt-5">
+              {/* <Poster/>
               <Poster/>
-              <Poster/>
-              <Poster/>
+              <Poster/> */}
             </div>
           </div>
           <div className="poster-Related  mt-5">
             <h3 className="font-bold">Related products</h3>
             <div className="row mt-5">
+              {/* <Poster/>
               <Poster/>
-              <Poster/>
-              <Poster/>
+              <Poster/> */}
             </div>
           </div>
         </div>
