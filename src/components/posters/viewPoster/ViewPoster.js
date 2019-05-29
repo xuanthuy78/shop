@@ -2,9 +2,21 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import imgPoster from "../../../../src/images/poster.jpg";
 import "./ViewPoster.scss";
+import * as callApi from "../../../services/apiCaller";
 // import Poster from "../poster/Poster";
 
 export class ViewPoster extends Component {
+  componentDidMount() {
+    var { match } = this.props;
+    if (match) {
+      var id = match.params.id;
+      callApi
+        .call(`wordpress-demo/wp-json/wc/v3/products/${id}`, "GET", null)
+        .then(res => {
+          console.log('tinh yeu be nho', res.data)
+        });
+    }
+  }
   render() {
     return (
       <div className="ViewPoster">
@@ -12,7 +24,58 @@ export class ViewPoster extends Component {
           <div className="poster-content mt-5">
             <div className="row">
               <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 poster-image">
-                <img className="image-resize" src={imgPoster} alt="Poster" />
+                {/* <img className="image-resize" src={imgPoster} alt="Poster" /> */}
+                <div id="demo" className="carousel slide" data-ride="carousel">
+                  {/* Indicators */}
+                  <ul className="carousel-indicators">
+                    <li
+                      data-target="#demo"
+                      data-slide-to={0}
+                      className="active"
+                    />
+                    <li data-target="#demo" data-slide-to={1} />
+                    <li data-target="#demo" data-slide-to={2} />
+                  </ul>
+                  {/* The slideshow */}
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
+                      <img
+                        src={imgPoster}
+                        className="image-resize"
+                        alt="Los Angeles"
+                      />
+                    </div>
+                    <div className="carousel-item">
+                      <img
+                        src={imgPoster}
+                        className="image-resize"
+                        alt="Chicago"
+                      />
+                    </div>
+                    <div className="carousel-item">
+                      <img
+                        src={imgPoster}
+                        className="image-resize"
+                        alt="New York"
+                      />
+                    </div>
+                  </div>
+                  {/* Left and right controls */}
+                  <a
+                    className="carousel-control-prev"
+                    href="#demo"
+                    data-slide="prev"
+                  >
+                    <span className="carousel-control-prev-icon" />
+                  </a>
+                  <a
+                    className="carousel-control-next"
+                    href="#demo"
+                    data-slide="next"
+                  >
+                    <span className="carousel-control-next-icon" />
+                  </a>
+                </div>
               </div>
               <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 poster-cart">
                 <div className="single-item-body">
@@ -40,8 +103,11 @@ export class ViewPoster extends Component {
                         type="number"
                         className="form-control form-control-lg"
                       />
-                      <button type="submit" className="btn btn-dark btn-hover btn-lg">
-                        <i className="fas fa-shopping-cart"></i> Add to cart
+                      <button
+                        type="submit"
+                        className="btn btn-dark btn-hover btn-lg"
+                      >
+                        <i className="fas fa-shopping-cart" /> Add to cart
                       </button>
                     </form>
                   </div>
@@ -67,8 +133,12 @@ export class ViewPoster extends Component {
                 </span>
               </li>
               <li className="nav-item">
-                <span className="nav-link font-bold" data-toggle="tab" href="#reviews">
-                  Reviews 
+                <span
+                  className="nav-link font-bold"
+                  data-toggle="tab"
+                  href="#reviews"
+                >
+                  Reviews
                 </span>
               </li>
             </ul>
@@ -91,7 +161,9 @@ export class ViewPoster extends Component {
                   <p>There are no reviews yet.</p>
                 </div>
                 <div className="idea mt-2">
-                  <h3 className="font-bold">Be the first to review “Ship Your Idea”</h3>
+                  <h3 className="font-bold">
+                    Be the first to review “Ship Your Idea”
+                  </h3>
                   <p>
                     Your email address will not be published. Required fields
                     are marked *
@@ -101,20 +173,120 @@ export class ViewPoster extends Component {
                       <p>Your rating *</p>
                       <div>
                         <fieldset className="rating">
-                          <input type="radio" id="star5" name="rating" defaultValue={5} /><label className="full" htmlFor="star5" title="Awesome - 5 stars" />
-                          <input type="radio" id="star4half" name="rating" defaultValue="4 and a half" /><label className="half" htmlFor="star4half" title="Pretty good - 4.5 stars" />
-                          <input type="radio" id="star4" name="rating" defaultValue={4} /><label className="full" htmlFor="star4" title="Pretty good - 4 stars" />
-                          <input type="radio" id="star3half" name="rating" defaultValue="3 and a half" /><label className="half" htmlFor="star3half" title="Meh - 3.5 stars" />
-                          <input type="radio" id="star3" name="rating" defaultValue={3} /><label className="full" htmlFor="star3" title="Meh - 3 stars" />
-                          <input type="radio" id="star2half" name="rating" defaultValue="2 and a half" /><label className="half" htmlFor="star2half" title="Kinda bad - 2.5 stars" />
-                          <input type="radio" id="star2" name="rating" defaultValue={2} /><label className="full" htmlFor="star2" title="Kinda bad - 2 stars" />
-                          <input type="radio" id="star1half" name="rating" defaultValue="1 and a half" /><label className="half" htmlFor="star1half" title="Meh - 1.5 stars" />
-                          <input type="radio" id="star1" name="rating" defaultValue={1} /><label className="full" htmlFor="star1" title="Sucks big time - 1 star" />
-                          <input type="radio" id="starhalf" name="rating" defaultValue="half" /><label className="half" htmlFor="starhalf" title="Sucks big time - 0.5 stars" />
+                          <input
+                            type="radio"
+                            id="star5"
+                            name="rating"
+                            defaultValue={5}
+                          />
+                          <label
+                            className="full"
+                            htmlFor="star5"
+                            title="Awesome - 5 stars"
+                          />
+                          <input
+                            type="radio"
+                            id="star4half"
+                            name="rating"
+                            defaultValue="4 and a half"
+                          />
+                          <label
+                            className="half"
+                            htmlFor="star4half"
+                            title="Pretty good - 4.5 stars"
+                          />
+                          <input
+                            type="radio"
+                            id="star4"
+                            name="rating"
+                            defaultValue={4}
+                          />
+                          <label
+                            className="full"
+                            htmlFor="star4"
+                            title="Pretty good - 4 stars"
+                          />
+                          <input
+                            type="radio"
+                            id="star3half"
+                            name="rating"
+                            defaultValue="3 and a half"
+                          />
+                          <label
+                            className="half"
+                            htmlFor="star3half"
+                            title="Meh - 3.5 stars"
+                          />
+                          <input
+                            type="radio"
+                            id="star3"
+                            name="rating"
+                            defaultValue={3}
+                          />
+                          <label
+                            className="full"
+                            htmlFor="star3"
+                            title="Meh - 3 stars"
+                          />
+                          <input
+                            type="radio"
+                            id="star2half"
+                            name="rating"
+                            defaultValue="2 and a half"
+                          />
+                          <label
+                            className="half"
+                            htmlFor="star2half"
+                            title="Kinda bad - 2.5 stars"
+                          />
+                          <input
+                            type="radio"
+                            id="star2"
+                            name="rating"
+                            defaultValue={2}
+                          />
+                          <label
+                            className="full"
+                            htmlFor="star2"
+                            title="Kinda bad - 2 stars"
+                          />
+                          <input
+                            type="radio"
+                            id="star1half"
+                            name="rating"
+                            defaultValue="1 and a half"
+                          />
+                          <label
+                            className="half"
+                            htmlFor="star1half"
+                            title="Meh - 1.5 stars"
+                          />
+                          <input
+                            type="radio"
+                            id="star1"
+                            name="rating"
+                            defaultValue={1}
+                          />
+                          <label
+                            className="full"
+                            htmlFor="star1"
+                            title="Sucks big time - 1 star"
+                          />
+                          <input
+                            type="radio"
+                            id="starhalf"
+                            name="rating"
+                            defaultValue="half"
+                          />
+                          <label
+                            className="half"
+                            htmlFor="starhalf"
+                            title="Sucks big time - 0.5 stars"
+                          />
                         </fieldset>
                       </div>
                     </div>
-                    <div className="clearfix"></div>
+                    <div className="clearfix" />
                     <div className="form-group">
                       <label>Your review *</label>
                       <textarea
@@ -140,7 +312,8 @@ export class ViewPoster extends Component {
                     <div className="form-group form-check">
                       <label className="form-check-label">
                         <input className="form-check-input" type="checkbox" />
-                        Save my name, email, and website in this browser for the next time I comment.
+                        Save my name, email, and website in this browser for the
+                        next time I comment.
                       </label>
                     </div>
                     <button type="submit" className="btn btn-primary">

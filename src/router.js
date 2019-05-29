@@ -16,14 +16,14 @@ const routes = [
         main: () => <Login />
     },
     {
-        path: '/Posters',
+        path: '/posters',
         exact: true,
-        main: () => <Posters />
+        main: ({match}) => <Posters match={match} />
     },
     {
-        path: '/Posterts/id',
+        path: '/posters/:id',
         exact: true,
-        main: () => <ViewPoster />
+        main: ({match}) => <ViewPoster match={match}/>
     },
     
 ];

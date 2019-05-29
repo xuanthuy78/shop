@@ -16,7 +16,8 @@ export class Posters extends Component {
         if (res && res.data) {
           this.props.onListProduct(res.data);
         }
-      });
+      }
+    );
   }
 
   showProducts(products) {
