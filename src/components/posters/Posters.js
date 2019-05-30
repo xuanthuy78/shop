@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import Poster from "./poster/Poster";
 import Sort from "./sortPosters/Sort";
 import Result from "./resultPosters/Result";
-import { Link } from "react-router-dom";
 import Search from "./searchPosters/Search";
 import { connect } from "react-redux";
 import * as actions from "./../../actions/index";
 import * as callApi from "../../services/apiCaller";
+import PaginationPosters from "./paginationPosters/PaginationPosters";
 // import {LIST_PRODUCT} from './../../constants/ActionType'
 export class Posters extends Component {
   componentDidMount() {
@@ -16,7 +16,8 @@ export class Posters extends Component {
         if (res && res.data) {
           this.props.onListProduct(res.data);
         }
-      });
+      }
+    );
   }
 
   showProducts(products) {
@@ -31,7 +32,7 @@ export class Posters extends Component {
 
   render() {
     var { products } = this.props;
-   
+    
     return (
       <div className="Posters mt-5">
         <div className="container">
@@ -49,35 +50,7 @@ export class Posters extends Component {
               {this.showProducts(products)}
             </div>
           </div>
-          <div className="posters-end">
-            <ul className="pagination">
-              <li className="page-item">
-                <Link to="/home" className="page-link">
-                  <i className="fas fa-angle-left" />
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link to="/home" className="page-link">
-                  1
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link to="/home" className="page-link">
-                  2
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link to="/home" className="page-link">
-                  3
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link to="/home" className="page-link">
-                  <i className="fas fa-angle-right" />
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <PaginationPosters/>
         </div>
       </div>
     );

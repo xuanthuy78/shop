@@ -7,3 +7,11 @@ export const listProduct = (data) => {
         data
     }
 };
+
+export const detailProduct = (data) => {
+    return {
+        type : types.DETAIL_PRODUCT,
+        data
+    }
+};
+

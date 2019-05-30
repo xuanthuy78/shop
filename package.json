@@ -5,14 +5,18 @@
   "homepage": "https://xuanthuy78.github.io/shop/",
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
+    "jquery": "^3.4.1",
     "node-sass": "^4.12.0",
+    "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-notifications": "^1.4.3",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.1",
+    "reactstrap": "^8.0.0",
     "redux": "^4.0.1"
   },
   "scripts": {
