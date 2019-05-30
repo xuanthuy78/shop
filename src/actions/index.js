@@ -15,3 +15,9 @@ export const detailProduct = (data) => {
     }
 };
 
+export const searchProducts = (keyword) => {
+    return {
+        type : types.SEARCH_PRODUCTS,
+        keyword
+    }
+};

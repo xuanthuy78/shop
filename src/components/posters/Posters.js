@@ -20,6 +20,7 @@ export class Posters extends Component {
     );
   }
 
+
   showProducts(products) {
     var result = null;
     if (products.length > 0) {
@@ -31,7 +32,11 @@ export class Posters extends Component {
   }
 
   render() {
-    var { products } = this.props;
+    var { products, keyword } = this.props;
+
+    products = products.filter((product) => {
+      return product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
+    });
     
     return (
       <div className="Posters mt-5">
@@ -59,7 +64,8 @@ export class Posters extends Component {
 
 const mapStateToProps = state => {
   return {
-    products: state.products.listProduct
+    products: state.products.listProduct,
+    keyword : state.searchProducts
   };
 };
 
