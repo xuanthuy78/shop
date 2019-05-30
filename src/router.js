@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./components/home/Home";
 import Posters from "./components/posters/Posters";
-import ViewPoster from "./components/posters/viewPoster/ViewPoster";
+import ViewPoster from "./components/viewPoster/ViewPoster";
 import Login from "./components/login/Login";
 
 const routes = [

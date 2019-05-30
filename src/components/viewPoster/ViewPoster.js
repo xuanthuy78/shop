@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import imgPoster from "../../../../src/images/poster.jpg";
 import "./ViewPoster.scss";
-import * as callApi from "../../../services/apiCaller";
+import * as callApi from "../../services/apiCaller";
 import { connect } from "react-redux";
-import * as actions from "../../../actions/index";
+import * as actions from "../../actions/index";
+import SlidePoster from "./slidePoster/SlidePoster";
 // import Poster from "../poster/Poster";
 
 export class ViewPoster extends Component {
@@ -22,64 +22,14 @@ export class ViewPoster extends Component {
 
   render() {
     var { product } = this.props;
-
+    
     return (
       <div className="ViewPoster">
         <div className="container">
           <div className="poster-content mt-5">
             <div className="row">
               <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 poster-image">
-                <div id="demo" className="carousel slide" data-ride="carousel">
-                  {/* Indicators */}
-                  <ul className="carousel-indicators">
-                    <li
-                      data-target="#demo"
-                      data-slide-to={0}
-                      className="active"
-                    />
-                    <li data-target="#demo" data-slide-to={1} />
-                    <li data-target="#demo" data-slide-to={2} />
-                  </ul>
-                  {/* The slideshow */}
-                  <div className="carousel-inner">
-                    <div className="carousel-item active">
-                      <img
-                        src={imgPoster}
-                        className="image-resize"
-                        alt="Los Angeles"
-                      />
-                    </div>
-                    <div className="carousel-item">
-                      <img
-                        src={imgPoster}
-                        className="image-resize"
-                        alt="Chicago"
-                      />
-                    </div>
-                    <div className="carousel-item">
-                      <img
-                        src={imgPoster}
-                        className="image-resize"
-                        alt="New York"
-                      />
-                    </div>
-                  </div>
-                  {/* Left and right controls */}
-                  <a
-                    className="carousel-control-prev"
-                    href="#demo"
-                    data-slide="prev"
-                  >
-                    <span className="carousel-control-prev-icon" />
-                  </a>
-                  <a
-                    className="carousel-control-next"
-                    href="#demo"
-                    data-slide="next"
-                  >
-                    <span className="carousel-control-next-icon" />
-                  </a>
-                </div>
+                <SlidePoster/>
               </div>
               <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 poster-cart">
                 <div className="single-item-body">
@@ -113,7 +63,7 @@ export class ViewPoster extends Component {
                   </div>
                   <div className="category mt-3">
                     <p className="category-title">
-                      SKU: POSTER-PREMIUM-QUALITY Category:{" "}
+                      SKU: {product.sku} Category:{" "}
                       <Link to="/posters">Posters</Link>
                     </p>
                   </div>
