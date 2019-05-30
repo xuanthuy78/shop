@@ -32,7 +32,7 @@ export class Posters extends Component {
 
   render() {
     var { products } = this.props;
-   
+    
     return (
       <div className="Posters mt-5">
         <div className="container">

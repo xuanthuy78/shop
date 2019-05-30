@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import imgPoster from "../../../../src/images/poster.jpg";
 import "./ViewPoster.scss";
 import * as callApi from "../../../services/apiCaller";
+import { connect } from "react-redux";
+import * as actions from "../../../actions/index";
 // import Poster from "../poster/Poster";
 
 export class ViewPoster extends Component {
@@ -13,18 +15,20 @@ export class ViewPoster extends Component {
       callApi
         .call(`wordpress-demo/wp-json/wc/v3/products/${id}`, "GET", null)
         .then(res => {
-          console.log('tinh yeu be nho', res.data)
+          this.props.onDetailProduct(res.data)
         });
     }
   }
+
   render() {
+    var { product } = this.props;
+
     return (
       <div className="ViewPoster">
         <div className="container">
           <div className="poster-content mt-5">
             <div className="row">
               <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 poster-image">
-                {/* <img className="image-resize" src={imgPoster} alt="Poster" /> */}
                 <div id="demo" className="carousel slide" data-ride="carousel">
                   {/* Indicators */}
                   <ul className="carousel-indicators">
@@ -79,18 +83,14 @@ export class ViewPoster extends Component {
               </div>
               <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 poster-cart">
                 <div className="single-item-body">
-                  <h3 className="single-item-title">Premium Quality</h3>
+                  <h3 className="single-item-title">{product.name}</h3>
                   <h3 className="single-item-price">
-                    <span>$34.55</span>
+                    <span>$ {product.price}</span>
                   </h3>
                 </div>
                 <div className="single-item-desc">
                   <p>
-                    Pellentesque habitant morbi tristique senectus et netus et
-                    malesuada fames ac turpis egestas. Vestibulum tortor quam,
-                    feugiat vitae, ultricies eget, tempor sit amet, ante. Donec
-                    eu libero sit amet quam egestas semper. Aenean ultricies mi
-                    vitae est. Mauris placerat eleifend leo.
+                    {product.description}
                   </p>
                 </div>
                 <div className="single-item-options">
@@ -346,4 +346,18 @@ export class ViewPoster extends Component {
   }
 }
 
-export default ViewPoster;
+const mapStateToProps = state => {
+  return {
+    product: state.products.detailProduct
+  };
+};
+
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    onDetailProduct: data => {
+      dispatch(actions.detailProduct(data));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewPoster);

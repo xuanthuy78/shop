@@ -23,7 +23,7 @@ const routes = [
     {
         path: '/posters/:id',
         exact: true,
-        main: ({match}) => <ViewPoster match={match}/>
+        main: ({match, history}) => <ViewPoster match={match} history={history}/>
     },
     
 ];
