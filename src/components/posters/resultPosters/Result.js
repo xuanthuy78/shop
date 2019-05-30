@@ -5,8 +5,8 @@ export class Result extends Component {
     var {count} = this.props;
     
     return (
-      <div className="Result">
-        <h6>Showing all {count} results</h6>
+      <div className="Result mb-5">
+        <h5>Showing all {count} results</h5>
       </div>
     )
   }
