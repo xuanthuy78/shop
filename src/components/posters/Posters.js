@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import * as actions from "./../../actions/index";
 import * as callApi from "../../services/apiCaller";
 import PaginationPosters from "./paginationPosters/PaginationPosters";
+import { filter } from 'lodash';
 // import {LIST_PRODUCT} from './../../constants/ActionType'
 export class Posters extends Component {
   componentDidMount() {
@@ -25,7 +26,11 @@ export class Posters extends Component {
     var result = null;
     if (products.length > 0) {
       result = products.map((product, index) => {
-        return <Poster key={index} product={product} />;
+        return (
+          <div key={index} className="Poster col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+            <Poster product={product} />
+          </div>
+          );
       });
     }
     return result;
@@ -34,7 +39,7 @@ export class Posters extends Component {
   render() {
     var { products, keyword } = this.props;
 
-    products = products.filter((product) => {
+    products = filter(products, (product) => {
       return product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
     });
     

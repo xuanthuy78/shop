@@ -28,7 +28,6 @@ export class Login extends Component {
       password : this.state.password
     }
     callApi.NoAuth('wordpress-demo/wp-json/jwt-auth/v1/token', 'POST', data ).then(res =>{
-      console.log(res);
       if (res && res.data) {
         localStorage.setItem('token', res.data.token);
         this.setState({redirect: true});
