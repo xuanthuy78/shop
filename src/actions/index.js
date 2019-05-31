@@ -29,3 +29,10 @@ export const relatedProducts = (data) => {
     }
 };
 
+export const listCategories = (data) => {
+    return {
+        type : types.LIST_CATEGORIES,
+        data
+    }
+};
+
