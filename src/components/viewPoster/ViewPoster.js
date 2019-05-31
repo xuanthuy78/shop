@@ -5,6 +5,8 @@ import * as callApi from "../../services/apiCaller";
 import { connect } from "react-redux";
 import * as actions from "../../actions/index";
 import SlidePoster from "./slidePoster/SlidePoster";
+import RelatedPosters from "./relatedPosters/RelatedPosters";
+import LikePosters from "./likePosters/LikePosters";
 // import Poster from "../poster/Poster";
 
 export class ViewPoster extends Component {
@@ -17,12 +19,25 @@ export class ViewPoster extends Component {
         .then(res => {
           this.props.onDetailProduct(res.data)
         });
+        window.scrollTo(0, 0);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      var id = this.props.match.params.id;
+      callApi
+        .call(`wordpress-demo/wp-json/wc/v3/products/${id}`, "GET", null)
+        .then(res => {
+          this.props.onDetailProduct(res.data)
+        });
+      window.scrollTo(0, 0);
     }
   }
 
   render() {
     var { product } = this.props;
-    
+   
     return (
       <div className="ViewPoster">
         <div className="container">
@@ -39,9 +54,7 @@ export class ViewPoster extends Component {
                   </h3>
                 </div>
                 <div className="single-item-desc">
-                  <p>
-                    {product.description}
-                  </p>
+                  <p dangerouslySetInnerHTML={{ __html: product.description}} ></p>
                 </div>
                 <div className="single-item-options">
                   <div className="shop-cart">
@@ -277,17 +290,13 @@ export class ViewPoster extends Component {
           <div className="poster-like mt-5">
             <h3 className="font-bold">You may also like…</h3>
             <div className="row mt-5">
-              {/* <Poster/>
-              <Poster/>
-              <Poster/> */}
+              <LikePosters/>
             </div>
           </div>
           <div className="poster-Related  mt-5">
-            <h3 className="font-bold">Related products</h3>
+            <h3 className="font-bold">Related posters</h3>
             <div className="row mt-5">
-              {/* <Poster/>
-              <Poster/>
-              <Poster/> */}
+              <RelatedPosters product = {product}/>
             </div>
           </div>
         </div>

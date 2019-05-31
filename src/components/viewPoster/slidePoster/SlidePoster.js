@@ -12,8 +12,7 @@ export class SlidePoster extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      activeIndex: 0,
-      images: this.props.images 
+      activeIndex: 0
     };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -100,7 +99,6 @@ export class SlidePoster extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("anh nè", state.products.detailProduct.images);
   return {
     images: state.products.detailProduct.images
   };

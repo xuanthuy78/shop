@@ -21,3 +21,11 @@ export const searchProducts = (keyword) => {
         keyword
     }
 };
+
+export const relatedProducts = (data) => {
+    return {
+        type : types.RELATED_PRODUCTS,
+        data
+    }
+};
+

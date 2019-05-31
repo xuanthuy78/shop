@@ -2,8 +2,9 @@
 import * as types from './../constants/ActionType';
 
 var initialState = {
-  listProduct: [],
-  detailProduct: []
+  listProduct: {},
+  detailProduct: {}, 
+  relatedProducts: {}
 };
 
 const products = (state = initialState, action) => {
@@ -14,10 +15,15 @@ const products = (state = initialState, action) => {
         listProduct: action.data
       }
     case types.DETAIL_PRODUCT:
-      console.log('reduce ', action);
       return {
         ...state,
         detailProduct: action.data
+      }
+    case types.RELATED_PRODUCTS:
+      console.log('', action.data)
+      return {
+        ...state,
+        relatedProducts: action.data
       }
     default: return {...state};
   }

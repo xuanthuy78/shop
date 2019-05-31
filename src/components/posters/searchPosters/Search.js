@@ -11,8 +11,7 @@ export class Search extends Component {
   }
 
   onChange = event => {
-    // event.preventDefault();
-    console.log("kenhadf", target);
+    event.preventDefault();
     var target = event.target;
     var name = target.name;
     var value = target.value;
