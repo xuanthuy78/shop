@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import './Home.scss';
+import HeaderCategories from "../layout/headerCategories/HeaderCategories";
 
 export class Home extends Component {
   render() {
     return (
       <div className="Home">
+        <HeaderCategories/>
         <div className="container mt-5">
           <div className="content">
             <h1>Hello world!</h1>
