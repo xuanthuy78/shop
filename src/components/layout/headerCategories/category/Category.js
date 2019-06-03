@@ -6,7 +6,7 @@ export class Category extends Component {
     var { category } = this.props;
     return (
       <NavItem>
-        <NavLink href="/components/">{category.name}</NavLink>
+        <NavLink href={`/product/${category.id}`}>{category.name}</NavLink>
       </NavItem>
     );
   }

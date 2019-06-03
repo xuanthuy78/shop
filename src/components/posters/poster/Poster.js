@@ -19,7 +19,7 @@ export class Poster extends Component {
         <div className="card-body">
           <h4 className="card-title">{product.name}</h4>
           <p className="card-text">$ {product.price}</p>
-          <div to="/" className="nav-link btn btn-dark btn-cart">
+          <div to="/home" className="nav-link btn btn-dark btn-cart">
             <i className="fas fa-shopping-cart"></i> Add to cart
           </div>
         </div>

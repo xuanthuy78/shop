@@ -20,7 +20,6 @@ const products = (state = initialState, action) => {
         detailProduct: action.data
       }
     case types.RELATED_PRODUCTS:
-      console.log('', action.data)
       return {
         ...state,
         relatedProducts: action.data
