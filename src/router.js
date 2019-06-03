@@ -3,6 +3,7 @@ import Home from "./components/home/Home";
 import Posters from "./components/posters/Posters";
 import ViewPoster from "./components/viewPoster/ViewPoster";
 import Login from "./components/login/Login";
+import NotFoundPage from "./components/notFoundPage/NotFoundPage";
 
 const routes = [
     {
@@ -25,7 +26,11 @@ const routes = [
         exact: true,
         main: ({match, history}) => <ViewPoster match={match} history={history}/>
     },
-    
+    {
+        path: '',
+        exact: false,
+        main: () => <NotFoundPage/>
+    },
 ];
 
 export default routes;
