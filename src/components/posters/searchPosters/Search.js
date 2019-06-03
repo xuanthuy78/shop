@@ -34,7 +34,7 @@ export class Search extends Component {
   render() {
     var { keyword } = this.state;
     return (
-      <div className="Search col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+      <div className="Search col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
         <form>
           <div className="input-group mb-3">
             <input
