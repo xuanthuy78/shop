@@ -69,7 +69,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, props) => {
   return {
     onListCategories: data => {
-      console.log('ahii', data)
       dispatch(actions.listCategories(data));
     }
   };

@@ -17,7 +17,7 @@ export class LikePosters extends Component {
           <div className="card-body">
             <h4 className="card-title">Price</h4>
             <p className="card-text">$ 10</p>
-            <div to="/" className="nav-link btn btn-dark btn-cart">
+            <div to="/home" className="nav-link btn btn-dark btn-cart">
               <i className="fas fa-shopping-cart" /> Add to cart
             </div>
           </div>

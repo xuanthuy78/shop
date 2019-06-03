@@ -4,6 +4,7 @@ import Posters from "./components/posters/Posters";
 import ViewPoster from "./components/viewPoster/ViewPoster";
 import Login from "./components/login/Login";
 import NotFoundPage from "./components/notFoundPage/NotFoundPage";
+import ProductCategory from "./components/productCategory/ProductCategory";
 
 const routes = [
     {
@@ -12,7 +13,7 @@ const routes = [
         main: () => <Home />
     },
     {
-        path: '/login',
+        path: '/',
         exact: true,
         main: () => <Login />
     },
@@ -25,6 +26,11 @@ const routes = [
         path: '/posters/:id',
         exact: true,
         main: ({match, history}) => <ViewPoster match={match} history={history}/>
+    },
+    {
+        path: '/product/:id',
+        exact: true,
+        main: ({match}) => <ProductCategory match={match}/>
     },
     {
         path: '',
