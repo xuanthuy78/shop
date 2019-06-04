@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class Sort extends Component {
   render() {
     return (
-      <div className="Sort col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+      <div className="Sort col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
         <select className="form-control" id="sel1">
           <option>Default sorting</option>
           <option>Sort by popularity</option>
