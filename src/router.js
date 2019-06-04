@@ -5,6 +5,8 @@ import ViewPoster from "./components/viewPoster/ViewPoster";
 import Login from "./components/login/Login";
 import NotFoundPage from "./components/notFoundPage/NotFoundPage";
 import ProductCategory from "./components/productCategory/ProductCategory";
+import Products from './components/admin/products/Products';
+import Categories from './components/admin/categories/Categories';
 
 const routes = [
     {
@@ -31,6 +33,16 @@ const routes = [
         path: '/product/:id',
         exact: true,
         main: ({match}) => <ProductCategory match={match}/>
+    },
+    {
+        path: '/admin/products',
+        exact: true,
+        main: () =><Products />
+    },
+    {
+        path: '/admin/categories',
+        exact: true,
+        main: () =><Categories/>
     },
     {
         path: '',
