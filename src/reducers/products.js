@@ -2,7 +2,7 @@
 import * as types from './../constants/ActionType';
 
 var initialState = {
-  listProduct: {},
+  listProduct: [],
   detailProduct: {}, 
   relatedProducts: {}
 };

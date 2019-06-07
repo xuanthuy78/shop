@@ -7,6 +7,7 @@ import NotFoundPage from "./components/notFoundPage/NotFoundPage";
 import ProductCategory from "./components/productCategory/ProductCategory";
 import Products from './components/admin/products/Products';
 import Categories from './components/admin/categories/Categories';
+import CreateProduct from "./components/admin/createProduct/CreateProduct";
 
 const routes = [
     {
@@ -27,12 +28,12 @@ const routes = [
     {
         path: '/posters/:id',
         exact: true,
-        main: ({match, history}) => <ViewPoster match={match} history={history}/>
+        main: ({match, history}) => <ViewPoster match={match} history={history} />
     },
     {
         path: '/product/:id',
         exact: true,
-        main: ({match}) => <ProductCategory match={match}/>
+        main: ({match}) => <ProductCategory match={match} />
     },
     {
         path: '/admin/products',
@@ -40,9 +41,19 @@ const routes = [
         main: () =><Products />
     },
     {
+        path: '/admin/products',
+        exact: true,
+        main: () =><Products />
+    },
+    {
+        path: '/admin/createProduct',
+        exact: true,
+        main: () =><CreateProduct />
+    },
+    {
         path: '/admin/categories',
         exact: true,
-        main: () =><Categories/>
+        main: () =><Categories />
     },
     {
         path: '',
