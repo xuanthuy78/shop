@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { NavItem, NavLink } from 'reactstrap';
+import { NavItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export class Category extends Component {
   render() {
     var { category } = this.props;
     return (
       <NavItem>
-        <NavLink href={`/product/${category.id}`}>{category.name}</NavLink>
+        <Link to={`/product/${category.id}`} className="link-category">{category.name}</Link>
       </NavItem>
     );
   }

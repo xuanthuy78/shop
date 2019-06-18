@@ -7,18 +7,25 @@ import ListProduct from "./listProduct/ListProduct";
 import { Link } from "react-router-dom";
 import * as callApi from "../../../services/apiCaller";
 import { findIndex } from 'lodash';
-// import * as actions from "../../../actions/index";
 
 export class Products extends Component {
   constructor(props) {
     super();
   }
 
-  componentWillReceiveProps(nextProps) {
-
+  componentDidMount() {
+    callApi
+      .call("wordpress-demo/wp-json/wc/v3/products", "GET", null)
+      .then(res => {
+        if (res && res.data) {
+          this.props.onListProduct(res.data);
+        }
+      }
+    );
   }
+
   onDeleteProduct = (id) => {
-    var { products } = this.props ;
+    var products = [...this.props.products] ;
     callApi
       .call(`wordpress-demo/wp-json/wc/v3/products/${id}`, "DELETE", null)
       .then(res => {
@@ -29,7 +36,8 @@ export class Products extends Component {
 
           if(index !== -1) {
             products.splice(index, 1);
-            this.props.onDeteleProductAdmin(products);
+            this.props.onListProduct(products)
+            // this.componentDidMount()
           }
         }
       });
@@ -72,29 +80,10 @@ export class Products extends Component {
       </div>
     );
   }
-
-  // showProducts = (products) => {
-  //   console.log('re render');
-  //   var result = null;
-  //   if (products.length > 0) {
-  //     result = products.map((product, index) => {
-  //       return (
-  //         <ListProduct onDeleteProduct= {this.onDeleteProduct} product={product} key={index} index={index}/>
-  //       );
-  //     });
-  //   }
-  //   return result;
-  // }
 }
 
-// function Products (props) {
-//   const { products } = props;
-//   console.log(products);
-//   return ( )
-// }
-
 const mapStateToProps = state => {
-  console.log('kenh 2', state.products.listProduct)
+  console.log("kenh 2", state.products.listProduct )
   return {
     products: state.products.listProduct
   }
@@ -102,8 +91,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    onDeteleProductAdmin: data => {
-      console.log('kenh 1',data);
+    onListProduct: data => {
       dispatch(actions.listProduct(data));
     }
   }

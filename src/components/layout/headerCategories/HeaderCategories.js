@@ -34,7 +34,7 @@ export class HeaderCategories extends Component {
 
   showCategories(categories) {
     var result = null;
-    if (categories.length > 0) {
+    if (categories && categories.length > 0) {
       result = categories.map((category, index) => {
         return (
           <Category key={index} category={category} />

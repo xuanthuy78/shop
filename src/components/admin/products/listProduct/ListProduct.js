@@ -1,14 +1,26 @@
 import React, { Component } from 'react'
 import { Button } from "reactstrap";
 import imagesPoster from '../../../../images/poster.jpg';
-import { findIndex } from 'lodash';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 export class ListProduct extends Component {
 
-  onDeleteProduct = (id) => {
-    if(window.confirm("bạn có muốn xóa ko")) {
-      this.props.onDeleteProduct(id);   
-    }
+  onDeleteProduct = (product) => {
+    confirmAlert({
+      title: 'Are you sure ?',
+      message: `You want to delete this ${product.name} poster`,
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.props.onDeleteProduct(product.id)
+        },
+        {
+          label: 'No'
+        }
+      ]
+    });
   }
+  
   render() {
     var { product, index } = this.props;
     var imgPoster = product.images.length > 0 ? product.images[0].src : imagesPoster;
@@ -28,7 +40,7 @@ export class ListProduct extends Component {
         <td style={{ width: "10px" }}>{product.price}</td>
         <td style={{ width: "20px" }}>
           <Button color="success"><i className="fas fa-edit"></i></Button>{' '}
-          <Button color="danger" onClick={() => this.onDeleteProduct(product.id)}><i className="fas fa-trash-alt"></i></Button>{' '}
+          <Button color="danger" onClick={() => this.onDeleteProduct(product)}><i className="fas fa-trash-alt"></i></Button>{' '}
         </td>
       </tr>
     )

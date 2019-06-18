@@ -7,7 +7,21 @@ import { connect } from "react-redux";
 import PaginationPosters from "./paginationPosters/PaginationPosters";
 import { filter } from 'lodash';
 // import {LIST_PRODUCT} from './../../constants/ActionType'
+import * as callApi from "../../services/apiCaller";
+import * as actions from "../../actions/index";
+
 export class Posters extends Component {
+  componentDidMount() {
+    callApi
+      .call("wordpress-demo/wp-json/wc/v3/products", "GET", null)
+      .then(res => {
+        if (res && res.data) {
+          this.props.onListProduct(res.data);
+        }
+      }
+    );
+  }
+
   showProducts(products) {
     var result = null;
     if (products.length > 0) {
@@ -60,4 +74,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(Posters);
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    onListProduct: data => {
+      dispatch(actions.listProduct(data));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posters);
