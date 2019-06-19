@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://xuanthuy78.github.io/shop/",
   "dependencies": {
+    "antd": "^3.19.5",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",

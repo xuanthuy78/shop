@@ -11,7 +11,7 @@ export class LikePosters extends Component {
             className="card-img-top"
             src={imagesPoster}
             alt="Card image"
-            style={{ width: "100%" }}
+            style={{ width: "100%", height: "100%" }}
             aria-hidden
           />
           <div className="card-body">
