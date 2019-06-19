@@ -7,22 +7,30 @@ import ListProduct from "./listProduct/ListProduct";
 import { Link } from "react-router-dom";
 import * as callApi from "../../../services/apiCaller";
 import { findIndex } from 'lodash';
+import 'antd/dist/antd.css';
+import { Pagination } from 'antd';
+
 
 export class Products extends Component {
-  constructor(props) {
+  constructor() {
     super();
+    this.state = {
+      pageNumber: 1
+    };
   }
 
   componentDidMount() {
-    callApi
-      .call("wordpress-demo/wp-json/wc/v3/products", "GET", null)
-      .then(res => {
-        if (res && res.data) {
-          this.props.onListProduct(res.data);
-        }
-      }
-    );
+    this.getListPoster(this.state.pageNumber)
+    // callApi
+    //   .call("wordpress-demo/wp-json/wc/v3/products", "GET", null)
+    //   .then(res => {
+    //     if (res && res.data) {
+    //       this.props.onListProduct(res.data);
+    //     }
+    //   }
+    // );
   }
+
 
   onDeleteProduct = (id) => {
     var products = [...this.props.products] ;
@@ -37,15 +45,36 @@ export class Products extends Component {
           if(index !== -1) {
             products.splice(index, 1);
             this.props.onListProduct(products)
-            // this.componentDidMount()
           }
         }
       });
   }
 
+  getListPoster (number) {
+    console.log(number)
+    callApi
+    .call(`/wordpress-demo/wp-json/wc/v3/products?page=${number}`, "GET", null )
+    .then(res => {
+      if (res && res.data) {
+        this.props.onListProduct(res.data);
+      }
+    }
+  );
+    
+  }
+
+  handlePagination = (number) => {
+    if (number !== this.state.pageNumber) {
+      this.getListPoster(number);
+      this.setState({
+        pageNumber: number
+      })
+    }
+  }
+
   render() {
     var { products } = this.props;
-    console.log('kenh 3',products)
+
     return (
       <div>
         <MenuAdmin />
@@ -76,6 +105,14 @@ export class Products extends Component {
               }
             </tbody>
           </Table>
+          <Pagination
+            onShowSizeChange={this.onShowSizeChange}
+            onChange={this.handlePagination}
+            defaultCurrent={3}
+            total={100}
+            current={this.state.pageNumber}
+            className="mb-5"
+          />
         </Container>
       </div>
     );
