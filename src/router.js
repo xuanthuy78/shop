@@ -31,7 +31,7 @@ const routes = [
         main: ({match, history}) => <ViewPoster match={match} history={history} />
     },
     {
-        path: '/product/:id',
+        path: '/category/:id',
         exact: true,
         main: ({match}) => <ProductCategory match={match} />
     },

@@ -4,10 +4,33 @@ import Sort from "./sortPosters/Sort";
 import Result from "./resultPosters/Result";
 import Search from "./searchPosters/Search";
 import { connect } from "react-redux";
-import PaginationPosters from "./paginationPosters/PaginationPosters";
 import { filter } from 'lodash';
 // import {LIST_PRODUCT} from './../../constants/ActionType'
+import * as callApi from "../../services/apiCaller";
+import * as actions from "../../actions/index";
+import 'antd/dist/antd.css';
+import { Pagination } from 'antd';
+
 export class Posters extends Component {
+  constructor() {
+    super();
+    this.state = {
+      pageNumber: 1
+    };
+  }
+
+  componentDidMount() {
+    this.getListPoster(this.state.pageNumber)
+    // callApi
+    //   .call("wordpress-demo/wp-json/wc/v3/products", "GET", null)
+    //   .then(res => {
+    //     if (res && res.data) {
+    //       this.props.onListProduct(res.data);
+    //     }
+    //   }
+    // );
+  }
+
   showProducts(products) {
     var result = null;
     if (products.length > 0) {
@@ -20,6 +43,32 @@ export class Posters extends Component {
       });
     }
     return result;
+  }
+
+  getListPoster (number) {
+    console.log(number)
+    callApi
+    .call(`/wordpress-demo/wp-json/wc/v3/products?page=${number}`, "GET", null )
+    .then(res => {
+      if (res && res.data) {
+        this.props.onListProduct(res.data);
+      }
+    }
+  );
+    
+  }
+
+  handlePagination = (number) => {
+    if (number !== this.state.pageNumber) {
+      this.getListPoster(number);
+      this.setState({
+        pageNumber: number
+      })
+    }
+  }
+
+  onShowSizeChange(current, pageSize) {
+    console.log(current, pageSize);
   }
 
   render() {
@@ -46,7 +95,14 @@ export class Posters extends Component {
               {this.showProducts(products)}
             </div>
           </div>
-          <PaginationPosters/>
+          <Pagination
+            onShowSizeChange={this.onShowSizeChange}
+            onChange={this.handlePagination}
+            defaultCurrent={3}
+            total={100}
+            current={this.state.pageNumber}
+            className="mb-5"
+          />
         </div>
       </div>
     );
@@ -60,4 +116,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(Posters);
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    onListProduct: data => {
+      dispatch(actions.listProduct(data));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posters);

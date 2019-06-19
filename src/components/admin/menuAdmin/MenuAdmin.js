@@ -5,8 +5,9 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink} from 'reactstrap';
+  NavItem} from 'reactstrap';
+import { Link } from 'react-router-dom';
+
 
 export class MenuAdmin extends Component {
   constructor(props) {
@@ -32,12 +33,12 @@ export class MenuAdmin extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/admin/products">Products</NavLink>
+                <Link to="/admin/products" className="link-category">Products</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/admin/categories">
+                <Link to="/admin/categories" className="link-category">
                   Categories
-                </NavLink>
+                </Link>
               </NavItem>
             </Nav>
           </Collapse>
