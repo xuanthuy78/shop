@@ -48,7 +48,12 @@ const routes = [
     {
         path: '/admin/createProduct',
         exact: true,
-        main: () =><CreateProduct />
+        main: ({history}) =><CreateProduct history={history} />
+    },
+    {
+        path: '/admin/product/:id/edit',
+        exact: true,
+        main: ({match, history}) =><CreateProduct match={match} history={history} />
     },
     {
         path: '/admin/categories',

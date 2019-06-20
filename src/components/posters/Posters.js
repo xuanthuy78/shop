@@ -46,7 +46,6 @@ export class Posters extends Component {
   }
 
   getListPoster (number) {
-    console.log(number)
     callApi
     .call(`/wordpress-demo/wp-json/wc/v3/products?page=${number}`, "GET", null )
     .then(res => {

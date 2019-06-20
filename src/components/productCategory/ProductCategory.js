@@ -36,7 +36,6 @@ export class ProductCategory extends Component {
       let { match } = this.props;
       if (match) {
         let id = match.params.id;
-        console.log(id);
         callApi
           .call(
             `wordpress-demo/wp-json/wc/v3/products/?category=${id}`,

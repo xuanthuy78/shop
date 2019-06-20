@@ -3,6 +3,7 @@ import { Button } from "reactstrap";
 import imagesPoster from '../../../../images/poster.jpg';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import { Link } from "react-router-dom";
 export class ListProduct extends Component {
 
   onDeleteProduct = (product) => {
@@ -39,7 +40,9 @@ export class ListProduct extends Component {
         <td style={{ width: "30px" }}>{product.name}</td>
         <td style={{ width: "10px" }}>{product.price}</td>
         <td style={{ width: "20px" }}>
-          <Button color="success"><i className="fas fa-edit"></i></Button>{' '}
+          <Link to={`/admin/product/${product.id}/edit`}>
+            <Button color="success"><i className="fas fa-edit"></i></Button>{' '}
+          </Link>
           <Button color="danger" onClick={() => this.onDeleteProduct(product)}><i className="fas fa-trash-alt"></i></Button>{' '}
         </td>
       </tr>
