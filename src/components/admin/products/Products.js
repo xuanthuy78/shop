@@ -9,7 +9,7 @@ import * as callApi from "../../../services/apiCaller";
 import { findIndex } from 'lodash';
 import 'antd/dist/antd.css';
 import { Pagination } from 'antd';
-
+import { bindActionCreators } from "redux";
 
 export class Products extends Component {
   constructor() {
@@ -21,14 +21,6 @@ export class Products extends Component {
 
   componentDidMount() {
     this.getListPoster(this.state.pageNumber)
-    // callApi
-    //   .call("wordpress-demo/wp-json/wc/v3/products", "GET", null)
-    //   .then(res => {
-    //     if (res && res.data) {
-    //       this.props.onListProduct(res.data);
-    //     }
-    //   }
-    // );
   }
 
 
@@ -44,23 +36,22 @@ export class Products extends Component {
 
           if(index !== -1) {
             products.splice(index, 1);
-            this.props.onListProduct(products)
+            this.props.actions.listProduct(products)
           }
         }
+        this.getListPoster(this.state.pageNumber)
       });
   }
 
   getListPoster (number) {
-    console.log(number)
-    callApi
-    .call(`/wordpress-demo/wp-json/wc/v3/products?page=${number}`, "GET", null )
-    .then(res => {
-      if (res && res.data) {
-        this.props.onListProduct(res.data);
+      callApi
+      .call(`/wordpress-demo/wp-json/wc/v3/products?page=${number}`, "GET", null )
+      .then(res => {
+        if (res && res.data) {
+          this.props.actions.listProduct(res.data);
+        }
       }
-    }
-  );
-    
+    );
   }
 
   handlePagination = (number) => {
@@ -120,7 +111,6 @@ export class Products extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("kenh 2", state.products.listProduct )
   return {
     products: state.products.listProduct
   }
@@ -128,9 +118,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    onListProduct: data => {
-      dispatch(actions.listProduct(data));
-    }
+    actions: bindActionCreators(actions, dispatch)
+
   }
 };
 

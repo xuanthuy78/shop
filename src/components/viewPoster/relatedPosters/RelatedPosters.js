@@ -34,7 +34,6 @@ export class RelatedPosters extends Component {
   }
 
   render() {
-    console.log('render')
     var {products} = this.props;
     return (
         this.showProducts(products)
