@@ -1,5 +1,15 @@
 // 4.import constant
 import * as types from './../constants/ActionType';
+import * as callApi from '../services/apiCaller';
+
+export const actProductRequest = (number) => {
+    return (dispatch) => {
+        return callApi.call(`/wordpress-demo/wp-json/wc/v3/products?page=${number}`, "GET", null )
+        .then(res => {
+            dispatch(listProduct(res.data))
+        });
+    };
+};
 
 export const listProduct = (data) => {
     return {

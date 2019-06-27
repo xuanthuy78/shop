@@ -13,7 +13,7 @@ export class Poster extends Component {
           className="card-img-top"
           src={imgPoster}
           alt="Card image"
-          style={{ width: "100%" }}
+          style={{ width: "100%", height:"300px" }}
           aria-hidden
         />
         <div className="card-body">

@@ -20,7 +20,7 @@ export class Products extends Component {
   }
 
   componentDidMount() {
-    this.getListPoster(this.state.pageNumber)
+    this.props.actions.actProductRequest(this.state.pageNumber);
   }
 
 
@@ -44,14 +44,15 @@ export class Products extends Component {
   }
 
   getListPoster (number) {
-      callApi
-      .call(`/wordpress-demo/wp-json/wc/v3/products?page=${number}`, "GET", null )
-      .then(res => {
-        if (res && res.data) {
-          this.props.actions.listProduct(res.data);
-        }
-      }
-    );
+      this.props.actions.actProductRequest(number);
+    //   callApi
+    //   .call(`/wordpress-demo/wp-json/wc/v3/products?page=${number}`, "GET", null )
+    //   .then(res => {
+    //     if (res && res.data) {
+    //       this.props.actions.listProduct(res.data);
+    //     }
+    //   }
+    // );
   }
 
   handlePagination = (number) => {

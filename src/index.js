@@ -8,9 +8,12 @@ import appReducers from './reducers/index';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import thunk from 'redux-thunk';
+import {applyMiddleware} from 'redux';
 
 const store = createStore(
-    appReducers
+    appReducers,
+    applyMiddleware(thunk)
 );
 
 ReactDOM.render(
